@@ -147,7 +147,7 @@ ${shape.render()}
 </svg>`
 
     //this method is to write the logo.svg file
-    fs.writeFile('./Examples/logo.svg', content, err => {
+    fs.writeFile('./examples/logo.svg', content, err => {
         if (err) {
             console.error(err);
         } else {
