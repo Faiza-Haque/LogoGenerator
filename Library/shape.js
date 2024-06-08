@@ -1,4 +1,4 @@
-class shape {
+class Shape {
     
     // This is a constructor with parameters
     constructor(color) {
@@ -14,5 +14,5 @@ class shape {
 
     }
 }
-
+module.exports = Shape;
 

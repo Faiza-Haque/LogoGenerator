@@ -1,4 +1,5 @@
 const inquirer = require("inquirer")
+const fs = require('fs')
 
 const colors = ["aliceblue", "antiquewhite", "aqua", "aquamarine", "azure",
     "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet",
@@ -27,6 +28,7 @@ const colors = ["aliceblue", "antiquewhite", "aqua", "aquamarine", "azure",
     "springgreen", "steelblue", "tan", "teal", "thistle", "tomato", "turquoise",
     "violet", "wheat", "white", "whitesmoke", "yellow", "yellowgreen"]
 const shapes = ["circle", "triangle", "square"]
+
 
 let textInput = "";
 const textValidation = async (text) => {
@@ -114,8 +116,22 @@ const ready = async () => {
     await getColor("text")
     await getShape()
     await getColor("shape")
+
+fs.writeFile ('./Examples/logo.svg', content, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      // file written successfully
+      console.log("logo.svg was generated")
+    }
+  });
+
 }
+
+
 ready()
+
+
 
 
 

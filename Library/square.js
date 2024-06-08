@@ -1,4 +1,5 @@
-class square extends shape{
+import Shape from "./Shape"
+class Square extends Shape{
 
  
 // This is a constructor with 2 parameters
@@ -12,3 +13,4 @@ render (){
 }
 
 }
+module.export = Square
