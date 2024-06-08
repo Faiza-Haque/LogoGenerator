@@ -9,7 +9,7 @@ constructor(color) {
   super (color)
 }
 render (){
-    const myCircle = `<circle cx="100" cy="50" r="40" fill="${super.getColor()}" />`
+    const myCircle = `<circle cx="150" cy="100" r="80" fill="${super.getColor()}" />`
     return myCircle 
 }
 

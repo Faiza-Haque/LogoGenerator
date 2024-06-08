@@ -1,8 +1,8 @@
 const inquirer = require("inquirer")
 const fs = require('fs')
-const circle = require("./Library/circle")
-const triangle = require("./Library/triangle")
-const square = require("./Library/square")
+const Circle = require("./Library/circle")
+const Triangle = require("./Library/triangle")
+const Square = require("./Library/square")
 const colors = ["aliceblue", "antiquewhite", "aqua", "aquamarine", "azure",
     "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet",
     "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral",
@@ -97,7 +97,7 @@ const getShape = async () => {
         message: "enter list of shapes to choose from: circle, triangle, and square",
         validate: shapeValidate
     }])
-    shapeValue = res.shapeInpute
+    shapeValue = res.shapeInput
     return shapeValue;
 }
 const shapeValidate = async (shape) => {
@@ -114,11 +114,11 @@ const shapeValidate = async (shape) => {
 const getShapeObject = (shapeName, shapeColor) => {
     let shapeObject = null
     if (shapeName === "circle")
-        shapeObject = new circle(shapeColor);
+        shapeObject = new Circle(shapeColor);
     else if (shapeName === "triangle")
-        shapeObject = new triangle(shapeColor)
+        shapeObject = new Triangle(shapeColor)
     else
-        shapeObject = new square(shapeColor)
+        shapeObject = new Square(shapeColor)
     return shapeObject
 }
 /**
@@ -134,6 +134,7 @@ const ready = async () => {
 
     // invoking an object for shape type and color
     const shape = getShapeObject(shapeType, shapeColor)
+    console.log (shape)
     /**
      This variable is rendering the svg file and license of the svg
      */

@@ -8,9 +8,9 @@ constructor(color) {
 }
 render (){
     //you have figure out the square shape info--can not take circles infor!!!!!
-    const mySquare = `<polygon points="0,0 100,0 100,100 0,100" fill="${super.getColor()}" />`
+    const mySquare = `<polygon points="100,50 200,50 200,150 100,150" fill="${super.getColor()}" />`
     return mySquare 
 }
 
 }
-module.export = square
+module.exports = square

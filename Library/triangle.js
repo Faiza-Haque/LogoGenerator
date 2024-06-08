@@ -8,9 +8,9 @@ constructor(color) {
 }
 render (){
     //you have figure out the triangle shape info--can not take circles infor!!!!!
-    const myTriangle = `<polygon points="100,0 0,180 200,180 " fill="${super.getColor()}" />`
+    const myTriangle = `<polygon points="150,0 40,180 250,180 " fill="${super.getColor()}" />`
     return myTriangle 
 }
 
 }
-modeule.export = triangle
+module.exports = triangle
