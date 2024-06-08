@@ -1,5 +1,5 @@
-import Shape from "./Shape"
-class Square extends Shape{
+const shape = require("./shape")
+class square extends shape{
 
  
 // This is a constructor with 2 parameters
@@ -13,4 +13,4 @@ render (){
 }
 
 }
-module.export = Square
+module.export = square

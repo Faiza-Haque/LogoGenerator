@@ -1,5 +1,5 @@
-const Shape = require ("Shape.js")
-class Triangle extends Shape{
+const shape = require("./shape")
+class triangle extends shape{
 
 
 // This is a constructor with 2 parameters
@@ -13,4 +13,4 @@ render (){
 }
 
 }
-modeule.export = Triangle
+modeule.export = triangle

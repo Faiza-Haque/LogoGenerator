@@ -1,6 +1,8 @@
 const inquirer = require("inquirer")
 const fs = require('fs')
-
+const circle = require("./Library/circle")
+const triangle = require("./Library/triangle")
+const square = require("./Library/square")
 const colors = ["aliceblue", "antiquewhite", "aqua", "aquamarine", "azure",
     "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet",
     "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral",
@@ -32,7 +34,7 @@ const shapes = ["circle", "triangle", "square"]
 
 let textInput = "";
 const textValidation = async (text) => {
-    // return text.length <= 3;
+
     if (text.length > 3) {
         console.log("\nmakesure the text is no more than 3 characters");
         return false;
@@ -47,8 +49,7 @@ const promptText = async () => {
         validate: textValidation
 
     }])
-    // textInput =res.userInput
-    // console.log(res.userInput)
+
 
     return res.userInput;
 
@@ -108,23 +109,51 @@ const shapeValidate = async (shape) => {
     }
     return true;
 }
-
-
+//parameters for the shape name and shape color
+//this function will get the user input and create an object based on what the user asks for
+const getShapeObject = (shapeName, shapeColor) => {
+    let shapeObject = null
+    if (shapeName === "circle")
+        shapeObject = new circle(shapeColor);
+    else if (shapeName === "triangle")
+        shapeObject = new triangle(shapeColor)
+    else
+        shapeObject = new square(shapeColor)
+    return shapeObject
+}
+/**
+ * Ready Function will generate all the prompt to get what the user inputs. It will write a svg file once all the 
+ * necessary data is collected to create that file.
+ */
 const ready = async () => {
 
-    await promptText()
-    await getColor("text")
-    await getShape()
-    await getColor("shape")
+    const textInput = await promptText()
+    const textColor = await getColor("text")
+    const shapeType = await getShape()
+    const shapeColor = await getColor("shape")
 
-fs.writeFile ('./Examples/logo.svg', content, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      // file written successfully
-      console.log("logo.svg was generated")
-    }
-  });
+    // invoking an object for shape type and color
+    const shape = getShapeObject(shapeType, shapeColor)
+    /**
+     This variable is rendering the svg file and license of the svg
+     */
+    const content = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+
+${shape.render()}
+
+<text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${textInput}</text>
+
+</svg>`
+
+    //this method is to write the logo.svg file
+    fs.writeFile('./Examples/logo.svg', content, err => {
+        if (err) {
+            console.error(err);
+        } else {
+            // file written successfully
+            console.log("logo.svg was generated")
+        }
+    });
 
 }
 

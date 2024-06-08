@@ -1,6 +1,7 @@
-const Shape = require ("Shape.js")
+const shape = require("./shape")
 
-class Circle extends Shape{
+
+class circle extends shape{
 
  
 // This is a constructor with 2 parameters
@@ -13,4 +14,4 @@ render (){
 }
 
 }
-module.exports = Circle
+module.exports = circle
