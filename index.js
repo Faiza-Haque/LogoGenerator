@@ -92,9 +92,10 @@ const colorValidation = async (color) => {
 const getShape = async () => {
     let shapeValue = "";
     const res = await inquirer.prompt([{
-        type: "input",
+        type: "list",
         name: "shapeInput",
-        message: "enter list of shapes to choose from: circle, triangle, and square",
+        message: "select a shape:",
+        choices: ["circle", "triangle", "square"],
         validate: shapeValidate
     }])
     shapeValue = res.shapeInput
